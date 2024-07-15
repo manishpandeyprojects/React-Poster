@@ -16,10 +16,10 @@ function App() {
 
   return (
     <>
-      <main className="bg-indigo-700 min-h-screen">
+      <div className="bg-indigo-700 min-h-screen">
         <Header showModalHandler={showModalHandler} />
         <PostList modalIsVisible={modalIsVisible} hideModalHandler={hideModalHandler} />
-      </main>
+      </div>
     </>
   );
 }
