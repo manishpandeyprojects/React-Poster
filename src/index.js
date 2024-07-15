@@ -7,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import App from './App';
 import RootLayout from './routes/RootLayout';
+import NewPost, { action as postAction } from './routes/NewPost';
+import { LoadPosts } from './App';
 
 const router = createBrowserRouter([
 
@@ -16,7 +18,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <App />
+        element: <App />,
+        loader: LoadPosts,
+        children: [
+          {
+            path: 'create-post',
+            element: <NewPost />,
+            action: postAction
+          }
+        ]
       }
     ]
   }

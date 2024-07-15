@@ -1,11 +1,19 @@
-function Modal({ children, closeModal }) {
+import { useNavigate } from "react-router-dom";
+
+function Modal({ children }) {
+  const navigate = useNavigate();
+
+  function closeHandle() {
+    navigate("/");
+  }
+
   return (
     <div
       className="relative z-10"
       aria-labelledby="modal-title"
       role="dialog"
       aria-modal="true"
-      onClick={closeModal}
+      onClick={closeHandle}
     >
       <div
         className="fixed inset-0 bg-blue-600 bg-opacity-75 transition-opacity"
