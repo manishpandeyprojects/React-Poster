@@ -9,9 +9,10 @@ import App from './App';
 import RootLayout from './routes/RootLayout';
 import NewPost, { action as postAction } from './routes/NewPost';
 import { LoadPosts } from './App';
+import PostDetails, { loader as PostDetailsLoader } from './routes/PostDetails';
+import Error from './routes/Error';
 
 const router = createBrowserRouter([
-
   {
     path: "/",
     element: <RootLayout />,
@@ -25,10 +26,20 @@ const router = createBrowserRouter([
             path: 'create-post',
             element: <NewPost />,
             action: postAction
-          }
+          },
+          {
+            path: '/:id',
+            element: <PostDetails />,
+            loader: PostDetailsLoader,
+          },
         ]
       }
-    ]
+    ],
+    errorElement: <Error />
+  },
+  {
+    path: '*',
+    element: <Error />
   }
 ]);
 

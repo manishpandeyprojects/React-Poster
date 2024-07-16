@@ -5,9 +5,14 @@ const PostList = ({ posts }) => {
     <>
       {posts.length > 0 && (
         <ul className="flex flex-wrap justify-center gap-4 pt-4">
-          {posts.map((item) => {
+          {posts.map((post) => {
             return (
-              <Post key={item.body} author={item.author} body={item.body} />
+              <Post
+                key={post.id}
+                id={post.id}
+                author={post.author}
+                body={post.body}
+              />
             );
           })}
         </ul>
